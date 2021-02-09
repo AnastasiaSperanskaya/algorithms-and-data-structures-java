@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.lang.String;
 
 public class Stack {
-    private int size;
-    private int[] stackArray;
+    private final int size;
+    private final int[] stackArray;
     private int top;
 
     public Stack(int size) {
@@ -15,11 +15,22 @@ public class Stack {
     }
 
     public void push(int element){
-        this.stackArray[++this.top] = element;
+        if(this.isFull()) {
+            System.out.println("Stack overflow!");
+        }
+        else {
+            this.stackArray[++this.top] = element;
+        }
     }
 
     public int pop() {
-        return this.stackArray[this.top--];
+        if(this.isEmpty()) {
+            System.out.println("Stack has no elements!");
+            return 0;
+        }
+        else {
+            return this.stackArray[this.top--];
+        }
     }
 
     public boolean isEmpty() {
@@ -41,20 +52,5 @@ public class Stack {
             s = s + ' ';
         }
         return s;
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello");
-        Stack stack = new Stack(10);
-        stack.push(23);
-        stack.push(12);
-        stack.pop();
-        System.out.println(stack.toString());
-        stack.push(12);
-        stack.pop();
-        stack.push(333);
-        System.out.println(stack.toString());
     }
 }
