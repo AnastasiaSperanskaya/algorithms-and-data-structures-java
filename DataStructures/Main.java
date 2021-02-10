@@ -2,6 +2,15 @@ package DataStructures;
 
 class Main {
     public static void main(String[] args) {
+        Queue<Integer> queue = new Queue<Integer>(4);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.enqueue(4);
+        queue.enqueue(4);
+        queue.display();
+
+        /*
         SizedStack<Integer> sizedStack = new SizedStack<Integer>(10);
         sizedStack.push(23);
         sizedStack.push(12);
@@ -25,5 +34,6 @@ class Main {
         stackList.push(45);
         stackList.display();
 
+        */
     }
 }
