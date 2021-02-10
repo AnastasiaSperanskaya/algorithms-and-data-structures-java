@@ -5,6 +5,15 @@ import DataStructures.Queue.DynamicQueue;
 
 class Main {
     public static void main(String[] args) {
+
+        HashTable<Integer, Integer> hashTable = new HashTable<Integer, Integer>();
+        hashTable.addPair(2,3);
+        hashTable.addPair(3,4);
+        System.out.println(hashTable.getValueByKey(2));
+        hashTable.deleteByKey(2);
+        System.out.println(hashTable.getValueByKey(2));
+        /*
+
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
         linkedList.insertAtEnd(3);
         linkedList.insertAtEnd(5);
@@ -12,7 +21,6 @@ class Main {
         linkedList.deleteAtPosition(2);
         linkedList.printList();
 
-        /*
         DynamicQueue<Integer> dynamicQueue = new DynamicQueue<Integer>();
 
         dynamicQueue.enqueue(2);
