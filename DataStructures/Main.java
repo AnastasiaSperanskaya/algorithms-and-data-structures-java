@@ -1,8 +1,18 @@
 package DataStructures;
 
+import DataStructures.List.LinkedList;
+import DataStructures.Queue.DynamicQueue;
+
 class Main {
     public static void main(String[] args) {
+        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+        linkedList.insertAtEnd(3);
+        linkedList.insertAtEnd(5);
+        linkedList.insertAtEnd(8);
+        linkedList.deleteAtPosition(2);
+        linkedList.printList();
 
+        /*
         DynamicQueue<Integer> dynamicQueue = new DynamicQueue<Integer>();
 
         dynamicQueue.enqueue(2);
@@ -11,8 +21,6 @@ class Main {
         dynamicQueue.display();
         dynamicQueue.dequeue();
         dynamicQueue.display();
-
-        /*
 
         Queue<Integer> queue = new Queue<Integer>(4);
         queue.enqueue(2);

@@ -1,4 +1,4 @@
-package DataStructures;
+package DataStructures.Queue;
 
 public class DynamicQueue<T> {
     Object[] data;
@@ -41,19 +41,11 @@ public class DynamicQueue<T> {
     }
 
     public boolean isFull() {
-        boolean status = false;
-        if (currentSize == data.length) {
-            status = true;
-        }
-        return status;
+        return currentSize == data.length;
     }
 
     public boolean isEmpty() {
-        boolean status = false;
-        if (currentSize == 0) {
-            status = true;
-        }
-        return status;
+        return currentSize == 0;
     }
 
     private void increaseCapacity() {
