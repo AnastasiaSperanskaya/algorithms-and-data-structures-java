@@ -1,20 +1,19 @@
 package DataStructures;
 
-import java.util.Arrays;
 import java.lang.String;
 
-public class Stack {
+public class SizedStack<T> {
     private final int size;
-    private final int[] stackArray;
+    private final Object[] stackArray;
     private int top;
 
-    public Stack(int size) {
+    public SizedStack(int size) {
         this.size = size;
-        this.stackArray = new int[size];
+        this.stackArray = new Object[size];
         this.top = -1;
     }
 
-    public void push(int element){
+    public void push(T element){
         if(this.isFull()) {
             System.out.println("Stack overflow!");
         }
@@ -23,13 +22,12 @@ public class Stack {
         }
     }
 
-    public int pop() {
+    public void pop() {
         if(this.isEmpty()) {
             System.out.println("Stack has no elements!");
-            return 0;
         }
         else {
-            return this.stackArray[this.top--];
+            this.top--;
         }
     }
 
@@ -41,7 +39,7 @@ public class Stack {
         return (this.top == this.size - 1);
     }
 
-    public int getTop() {
+    public Object getTop() {
         return this.stackArray[this.top];
     }
 
