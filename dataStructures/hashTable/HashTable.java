@@ -1,4 +1,4 @@
-package DataStructures;
+package dataStructures.hashTable;
 import java.util.ArrayList;
 
 public class HashTable<K, V> {

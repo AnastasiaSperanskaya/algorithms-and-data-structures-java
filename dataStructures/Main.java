@@ -1,7 +1,5 @@
-package DataStructures;
-
-import DataStructures.List.LinkedList;
-import DataStructures.Queue.DynamicQueue;
+package dataStructures;
+import dataStructures.hashTable.HashTable;
 
 class Main {
     public static void main(String[] args) {
@@ -12,6 +10,7 @@ class Main {
         System.out.println(hashTable.getValueByKey(2));
         hashTable.deleteByKey(2);
         System.out.println(hashTable.getValueByKey(2));
+
         /*
 
         LinkedList<Integer> linkedList = new LinkedList<Integer>();

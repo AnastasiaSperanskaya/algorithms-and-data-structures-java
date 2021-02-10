@@ -1,4 +1,4 @@
-package DataStructures.Stack;
+package dataStructures.stack;
 
 class Node<T> {
     private T data;

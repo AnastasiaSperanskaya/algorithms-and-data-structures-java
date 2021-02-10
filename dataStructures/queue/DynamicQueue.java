@@ -1,4 +1,4 @@
-package DataStructures.Queue;
+package dataStructures.queue;
 
 public class DynamicQueue<T> {
     Object[] data;
