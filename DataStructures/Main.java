@@ -2,6 +2,18 @@ package DataStructures;
 
 class Main {
     public static void main(String[] args) {
+
+        DynamicQueue<Integer> dynamicQueue = new DynamicQueue<Integer>();
+
+        dynamicQueue.enqueue(2);
+        dynamicQueue.enqueue(3);
+        dynamicQueue.enqueue(245);
+        dynamicQueue.display();
+        dynamicQueue.dequeue();
+        dynamicQueue.display();
+
+        /*
+
         Queue<Integer> queue = new Queue<Integer>(4);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -10,7 +22,6 @@ class Main {
         queue.enqueue(4);
         queue.display();
 
-        /*
         SizedStack<Integer> sizedStack = new SizedStack<Integer>(10);
         sizedStack.push(23);
         sizedStack.push(12);
