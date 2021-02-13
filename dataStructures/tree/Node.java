@@ -1,8 +1,8 @@
 package dataStructures.tree;
 
 public class Node {
-    public int key;
-    public Node left, right;
+    int key;
+    Node left, right;
 
     public Node(int item) {
         key = item;

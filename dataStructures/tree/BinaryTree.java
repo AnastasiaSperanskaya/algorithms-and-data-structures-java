@@ -1,7 +1,7 @@
 package dataStructures.tree;
 
 public class BinaryTree {
-    public Node root;
+    Node root;
 
     BinaryTree(int key) {
         root = new Node(key);
@@ -33,12 +33,28 @@ public class BinaryTree {
         }
     }
 
-    public void deleteNode(int key) {
+    public void deleteNode(Node root, int key) {
         Node node = new Node(key);
     }
 
-    public int searchNode(int key) {
-        return 0;
+    public int searchNode(Node root, int key) {
+        if(root.key == key) {
+            return 1;
+        } else if (root.key > key && root.left != null) {
+            return searchNode(root.left, key);
+        } else if (root.key < key && root.right != null) {
+            return searchNode(root.right, key);
+        } else
+            return 0;
+    }
+
+    public int search(int key) {
+        if(root == null) {
+            System.out.println("The tree is empty!");
+            return 0;
+        } else {
+            return searchNode(root, key);
+        }
     }
 
     public void main(String[] args) {

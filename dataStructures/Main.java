@@ -8,8 +8,10 @@ class Main {
         BinaryTree tree = new BinaryTree();
         tree.insert(2);
         tree.insert(3);
-
-        System.out.println(tree.root.right.key);
+        tree.insert(1);
+        System.out.println(tree.search(3));
+        System.out.println(tree.search(1));
+        System.out.println(tree.search(4));
 
         /*
         HashTable<Integer, Integer> hashTable = new HashTable<Integer, Integer>();
