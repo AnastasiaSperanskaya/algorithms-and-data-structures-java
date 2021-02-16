@@ -1,9 +1,9 @@
 package dataStructures.tree;
 
 public class BinaryTree {
-    Node root;
+    private Node root;
 
-    BinaryTree(int key) {
+    public BinaryTree(int key) {
         root = new Node(key);
     }
 
@@ -13,14 +13,16 @@ public class BinaryTree {
 
     private void insertNode(Node root, int key) {
         if (root.key > key) {
-            if(root.left == null)
+            if(root.left == null) {
                 root.left = new Node(key);
-            else
+                root.left.parent = root;
+            } else
                 insertNode(root.left, key);
         } else if ((int)root.key < (int)key) {
-            if(root.right == null)
+            if(root.right == null) {
                 root.right = new Node(key);
-            else
+                root.right.parent = root;
+            } else
                 insertNode(root.right, key);
         }
     }
@@ -37,29 +39,41 @@ public class BinaryTree {
         Node node = new Node(key);
     }
 
-    public int searchNode(Node root, int key) {
+    public void delete(int key) {
+        Node node = searchNode(root, key);
+        if (node == null) {
+            System.out.println("The node with given key doesn't exist!");
+        } else if(node.parent == null) { //then it is root
+            root = null;
+        } else if(node.left == null && node.right == null) { //both children are null then just delete it
+            if(node.parent.key > node.key)
+                node.parent.left = null;
+            else
+                node.parent.right = null;
+        } else if (node.left != null) {
+            if (node.left.right == null && node.left.left == null) {
+
+            }
+        }
+    }
+
+    public Node searchNode(Node root, int key) {
         if(root.key == key) {
-            return 1;
+            return root;
         } else if (root.key > key && root.left != null) {
             return searchNode(root.left, key);
         } else if (root.key < key && root.right != null) {
             return searchNode(root.right, key);
         } else
-            return 0;
+            return null;
     }
 
-    public int search(int key) {
+    public boolean search(int key) {
         if(root == null) {
             System.out.println("The tree is empty!");
-            return 0;
+            return false;
         } else {
-            return searchNode(root, key);
+            return (searchNode(root, key) != null);
         }
-    }
-
-    public void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-
-        tree.insert(2);
     }
 }

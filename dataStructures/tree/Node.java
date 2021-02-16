@@ -2,10 +2,10 @@ package dataStructures.tree;
 
 public class Node {
     int key;
-    Node left, right;
+    Node left, right, parent;
 
     public Node(int item) {
         key = item;
-        left = right = null;
+        parent = left = right = null;
     }
 }

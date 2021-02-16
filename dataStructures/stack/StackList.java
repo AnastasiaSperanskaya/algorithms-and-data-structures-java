@@ -27,6 +27,10 @@ class StackList<T> {
         return data;
     }
 
+    public T peek() {
+        return top.getData();
+    }
+
     public void display() {
         Node<T> temp = top;
         if (isEmpty()) {
