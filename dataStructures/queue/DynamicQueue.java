@@ -4,25 +4,29 @@ public class DynamicQueue<T> {
     Object[] data;
     int head = 0;
     int tail = -1;
-    private int capacity = 2;
     int currentSize = 0;
 
     public DynamicQueue() {
-        data = new Object[this.capacity];
+        data = new Object[1];
     }
 
     public void enqueue(T item) {
-        if (isFull()) {
-            //System.out.println("Queue is full, increasing capacity...");
-            increaseCapacity();
-        }
+        if (isFull()) { increaseCapacity(); }
+
         tail++;
         if(tail >= data.length && currentSize != data.length) {
             tail = 0;
         }
         data[tail] = item;
         currentSize++;
-        //System.out.println("Adding: " + item);
+    }
+
+    public int size() {
+        return currentSize;
+    }
+
+    public T peek() {
+        return (T) data[head];
     }
 
     public void dequeue() {
@@ -31,10 +35,7 @@ public class DynamicQueue<T> {
         } else {
             head++;
             if(head > data.length-1) {
-                //System.out.println("removed: "+data[head -1]);
                 head = 0;
-            } else {
-                //System.out.println("removed: "+data[head -1]);
             }
             currentSize--;
         }
@@ -54,19 +55,15 @@ public class DynamicQueue<T> {
         int tmpHead = head;
         int index = -1;
 
-        while(true) {
+        do {
             newDataArray[++index] = this.data[tmpHead];
             tmpHead++;
-            if(tmpHead == this.data.length) {
+            if (tmpHead == this.data.length) {
                 tmpHead = 0;
             }
-            if(currentSize == index+1) {
-                break;
-            }
-        }
+        } while (currentSize != index + 1);
 
         this.data = newDataArray;
-        //System.out.println("New array capacity: " + this.data.length);
         this.head = 0;
         this.tail = index;
     }

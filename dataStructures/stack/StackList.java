@@ -20,11 +20,9 @@ class StackList<T> {
         length++;
     }
 
-    public T pop() {
-        T data = top.getData();
+    public void pop() {
         top = top.getNext();
         length--;
-        return data;
     }
 
     public T peek() {
