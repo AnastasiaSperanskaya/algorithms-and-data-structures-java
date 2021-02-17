@@ -46,7 +46,6 @@ public class LinkedList<T> {
             System.out.print(currNode.data + " ");
             currNode = currNode.next;
         }
-        System.out.println("\n");
     }
 
     public void deleteByKey(T key)
