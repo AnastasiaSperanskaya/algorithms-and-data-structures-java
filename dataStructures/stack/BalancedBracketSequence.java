@@ -4,7 +4,6 @@ public class BalancedBracketSequence {
     public static void check(String s) {
         StackList<Integer> stack = new StackList<Integer>();
         char a;
-        int k;
         boolean f = true;
         for (int i = 0; i < s.length(); i++) {
             a = s.charAt(i);
@@ -19,43 +18,30 @@ public class BalancedBracketSequence {
                     stack.push(3);
                     break;
                 case ')':
-                    if (stack.isEmpty()) {
-                        f = false;
-                        break;
-                    }
-                    k = stack.peek();
-                    stack.pop();
-                    if (k != 1) f = false;
+                    if(!stack.isEmpty() && stack.peek() == 1) { stack.pop(); }
+                    else { f = false; }
                     break;
                 case ']':
-                    if (stack.isEmpty()) {
-                        f = false;
-                        break;
-                    }
-                    k = stack.peek();
-                    stack.pop();
-                    if (k != 2) f = false;
+                    if(!stack.isEmpty() && stack.peek() == 2) { stack.pop(); }
+                    else { f = false; }
                     break;
                 case '}':
-                    if (stack.isEmpty()) {
-                        f = false;
-                        break;
-                    }
-                    k = stack.peek();
-                    stack.pop();
-                    if (k != 3) f = false;
+                    if(!stack.isEmpty() && stack.peek() == 3) { stack.pop(); }
+                    else { f = false; }
                     break;
             }
             if (!f) break;
         }
 
         if (f && stack.isEmpty())
-            System.out.println("OK");
+            System.out.println("The sequence is correct!");
         else
             System.out.println("Error");
     }
 
     public static void main(String[] args) {
         check("((frfe),k )");
+        check("[(){()}]");
+        check(")))}]])((((((");
     }
 }
