@@ -39,8 +39,7 @@ public class HashTable<K, V> {
         int bucketIndex = generateHashCode(key);
         HashNode<K, V> head = bucketArray.get(bucketIndex);
         HashNode<K, V> prev = null;
-        while (head != null)
-        {
+        while (head != null) {
             if (head.key.equals(key))
                 break;
 
