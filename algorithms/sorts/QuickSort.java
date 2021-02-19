@@ -13,6 +13,7 @@ public class QuickSort {
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
+            System.out.println(Arrays.toString(arr));
         }
 
         int temp = arr[i+1];
@@ -31,7 +32,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 11, 5, 6, 0};
+        int[] arr = new int[]{5, 2, 1, 11, 5, 0, 4};
         sort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
