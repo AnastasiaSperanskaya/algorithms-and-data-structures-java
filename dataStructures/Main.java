@@ -9,9 +9,15 @@ class Main {
         tree.insert(2);
         tree.insert(3);
         tree.insert(1);
+        tree.insert(4);
+        tree.insert(0);
         System.out.println(tree.search(3));
         System.out.println(tree.search(1));
-        System.out.println(tree.search(4));
+        System.out.println(tree.search(0));
+        tree.delete(2);
+        System.out.println(tree.search(2));
+        System.out.println(tree.search(0));
+        System.out.println(tree.search(3));
 
         /*
         HashTable<Integer, Integer> hashTable = new HashTable<Integer, Integer>();

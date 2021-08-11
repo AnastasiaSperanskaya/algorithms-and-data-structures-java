@@ -7,10 +7,10 @@ public class Queue<T> {
     private final int capacity;
     private int size;          // current size of the queue
 
-    Queue(int cap)
+    Queue(int capacity)
     {
-        data = new Object[cap];
-        capacity = cap;
+        data = new Object[capacity];
+        this.capacity = capacity;
         head = 0;
         tail = -1;
         size = 0;

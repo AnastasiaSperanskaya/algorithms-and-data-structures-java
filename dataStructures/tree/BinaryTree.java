@@ -43,16 +43,62 @@ public class BinaryTree {
         Node node = searchNode(root, key);
         if (node == null) {
             System.out.println("The node with given key doesn't exist!");
-        } else if(node.parent == null) { //then it is root
-            root = null;
-        } else if(node.left == null && node.right == null) { //both children are null then just delete it
-            if(node.parent.key > node.key)
-                node.parent.left = null;
-            else
-                node.parent.right = null;
-        } else if (node.left != null) {
-            if (node.left.right == null && node.left.left == null) {
-
+        }
+//        else if(node.parent == null) { //then it is root
+//            root = null;
+//        }
+        else if(node.left == null && node.right == null) { //both children are null then just delete it
+            if (node.parent != null) {
+                if (node.parent.key > node.key)
+                    node.parent.left = null;
+                else
+                    node.parent.right = null;
+            } else {
+                root = null;
+            }
+        } else if (node.left != null) { //node.right - any
+            if (node.left.right == null) {
+                if(node.parent != null) {
+                    if (node.parent.key > node.key) { //node is a left child
+                        node.parent.left = node.left;
+                    } else { //node is a right child
+                        node.parent.right = node.left;
+                    }
+                    node.left.parent = node.parent;
+                } else {
+                    root = node.left;
+                }
+                node.left.right = node.right;
+            } else { //node.left.right != null - take the last right child in node.left.right branch add root case
+                Node nodeRight = node.left.right;
+                while (nodeRight.right != null) { //find sought node
+                    nodeRight = nodeRight.right;
+                }
+                nodeRight.parent.right = nodeRight.left;
+                nodeRight.right = node.right;
+                nodeRight.left = node.left;
+                node.left.parent = nodeRight;
+                if (node.right != null) node.right.parent = nodeRight;
+                nodeRight.parent = node.parent;
+                if(node.parent != null) {
+                    if (node.parent.key > node.key) { //node is a left child
+                        node.parent.left = nodeRight;
+                    } else { //node is a right child
+                        node.parent.right = nodeRight;
+                    }
+                } else {
+                    root = nodeRight;
+                }
+            }
+        } else { //node.right != null && node.left = null - take the last left child in node.right branch (add root case (node.parent == null))
+            if (node.parent != null) {
+                if (node.parent.key > node.key) { //node is a left child
+                    node.parent.left = node.right;
+                } else { //node is a right child
+                    node.parent.right = node.right;
+                }
+            } else {
+                root = node.right;
             }
         }
     }
