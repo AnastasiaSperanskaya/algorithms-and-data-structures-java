@@ -4,22 +4,23 @@ import dataStructures.prefixTree.Trie;
 import dataStructures.prefixTree.TrieNode;
 import dataStructures.tree.BinaryTree;
 import java.util.HashMap;
+import java.util.Stack;
 
 class Main {
     public static void main(String[] args) {
-
-        Trie trie = new Trie();
-        trie.insert("cold");
-        trie.insert("colder");
-        trie.insert("coldest");
-        trie.print();
-        System.out.println(trie.find("cold"));
-        System.out.println(trie.find("coldest"));
-        trie.delete("cold");
-        trie.delete("colder");
-        trie.delete("coldest");
-        System.out.println(trie.find("cold"));
-        trie.print();
+//        Trie trie = new Trie();
+//        trie.insert("cold");
+//        trie.insert("colder");
+//        trie.insert("coldest");
+//        trie.print();
+//        System.out.println(trie.startsWith("cl"));
+//        System.out.println(trie.find("cold"));
+//        System.out.println(trie.find("coldest"));
+//        trie.delete("cold");
+//        trie.delete("colder");
+//        trie.delete("coldest");
+//        System.out.println(trie.find("cold"));
+//        trie.print();
 
 //        String word = "Hello";
 //        System.out.println(word.length());

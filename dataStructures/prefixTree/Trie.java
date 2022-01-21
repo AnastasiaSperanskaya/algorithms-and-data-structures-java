@@ -75,4 +75,16 @@ public class Trie {
     public void print() {
         printWords(root);
     }
+
+    public boolean startsWith(String prefix) {
+        TrieNode currentNode = root;
+        for( int i = 0;  i < prefix.length(); i++ ) {
+            char current = prefix.charAt(i);
+            if(currentNode.findChild(current) == null) {
+                return false;
+            }
+            currentNode = currentNode.findChild(current);
+        }
+        return true;
+    }
 }
